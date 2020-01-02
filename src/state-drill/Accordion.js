@@ -5,10 +5,9 @@ export default class Accordion extends Component {
         current: 0
       };
     renderContent(index) {
-        return <p>{this.state.content}</p>
+        return ( <p>{this.state.content}</p>)
     }
     render() {
-
         const sections = this.props.sections.map((section, index) =>
             <li key={index}>
                 <button>
