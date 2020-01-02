@@ -1,5 +1,5 @@
 import React from 'react';
-import Accordion from './state-drills/Accordion';
+import Accordion from './state-drill/Accordion';
 
 const sections = [
   {

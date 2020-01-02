@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 
 export default class Accordion extends Component {
-    state = {
-        current: 0
-      };
-    renderContent(index) {
-        return ( <p>{this.state.content}</p>)
+    static defaultProps = {
+        sections: []
     }
+
+    state = {
+        current: null
+    };
+
+    renderContent(content) {
+        return (<p>{content}</p>)
+    }
+
+    handleClick = (index) => {
+        this.setState(
+            {
+                current: index
+            }
+        )
+    }
+
     render() {
         const sections = this.props.sections.map((section, index) =>
             <li key={index}>
-                <button>
+                <button onClick={() => this.handleClick(index)}>
                     {section.title}
-                    {(this.state.current === index) && this.renderContent(index)}
                 </button>
+                {(this.state.current === index) && this.renderContent(section.content)}
             </li>);
 
         return (
